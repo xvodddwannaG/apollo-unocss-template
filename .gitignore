@@ -24,7 +24,6 @@ dist-ssr
 *.sw?
 
 #__generated__
-src/__generated__
-src/**/__generated__
+__generated__
 
-.yarn/cache
+.yarn
