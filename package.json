@@ -10,7 +10,8 @@
     "generate:watch": "graphql-codegen --watch",
     "schema": "graphql-codegen -c ./codegen.download.yml",
     "clear": "find ./src -name \"__generated__\" -exec rm -rf '{}' +",
-    "lint": "eslint 'src/**/*.{js,ts,tsx,graphql}'"
+    "lint": "eslint 'src/**/*.{js,ts,tsx,graphql}'",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@apollo/client": "^3.6.2",
@@ -38,10 +39,18 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "typescript": "^4.6.3",
     "unocss": "^0.33.2",
     "vite": "^2.9.7"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.2.0",
+  "lint-staged": {
+    "*": [
+      "prettier --write",
+      "eslint --fix --quiet"
+    ]
+  }
 }
